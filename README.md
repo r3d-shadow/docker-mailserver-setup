@@ -150,6 +150,46 @@ docker-compose restart
 
 ## **Testing and Troubleshooting**
 
+### Postfix Email Reception Troubleshooting Guide
+
+If you are experiencing issues with receiving emails, follow these detailed guidelines to troubleshoot and resolve the problem:
+
+#### 1. **Verify Configuration**
+
+- **Check Configuration Files:**
+  - Ensure the `myhostname` and `mydomain` variables are correctly set.
+  - Refer to the provided `utils/postfix.conf.example` for configuration details. Check the `IMPORTANT` section. Verify that these values are correctly set in the `/etc/postfix/main.cf` file.
+	  ```conf
+	  mydestination = localhost.$mydomain, localhost
+	  myhostname = mail.bansira.com
+	  mydomain = mail.bansira.com
+	  ```
+
+- **Apply Changes:**
+  - Reload Postfix to apply if there are any changes in the config file.
+    ```bash
+    postfix reload
+    ```
+
+#### 2. **Check Logs**
+
+- **Review Logs:**
+  - Examine Postfix logs for any errors or warnings that might indicate configuration issues or other problems.
+
+#### 3. **Network and Firewall**
+
+- **Check Port Accessibility:**
+  - Ensure that necessary ports (e.g., 25 for SMTP, 587 for submission) are open and not blocked by firewalls.
+
+#### 4. **Testing**
+
+- **Verify Connectivity:**
+  - Use tools like `telnet` or `nc` to test connectivity to the mail server.
+
+#### 5. **Additional Tips**
+
+- For further assistance, consult the [Postfix documentation](http://www.postfix.org/documentation.html) or relevant community forums.
+
 ### **1. Email Delivery Testing**
 
 Use online tools to test the configuration of your mail server. Some useful tools include:
