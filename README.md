@@ -161,8 +161,8 @@ If you are experiencing issues with receiving emails, follow these detailed guid
   - Refer to the provided `utils/postfix.conf.example` for configuration details. Check the `IMPORTANT` section. Verify that these values are correctly set in the `/etc/postfix/main.cf` file.
 	  ```conf
 	  mydestination = localhost.$mydomain, localhost
-	  myhostname = mail.bansira.com
-	  mydomain = mail.bansira.com
+	  myhostname = mail.example.com
+	  mydomain = mail.example.com
 	  ```
 
 - **Apply Changes:**
